@@ -1,0 +1,6 @@
+include ./responsive-embed
+
+mixin soundcloudEmbed(trackID, autoplay)
+  - var autoplay = autoplay ? 'true' : 'false'
+  - var embedUrl = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackID}&amp;color=0c869b&amp;inverse=false&amp;auto_play=${autoplay}&amp;show_user=true`
+  iframe(width="100%" height="60" scrolling="no" frameborder="no" src=embedUrl)

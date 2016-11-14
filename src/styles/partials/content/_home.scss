@@ -1,0 +1,29 @@
+.latest-episode {
+  text-align: center;
+  border: 1px solid #CCC;
+  background: #EEE;
+  border-radius: 5px;
+  margin-bottom: $grid-gutter-width;
+  padding: $grid-gutter-width;
+}
+.latest-episode-heading {
+  margin: 0 0 5px;
+  font-size: 26px;
+  color: #999;
+}
+.latest-episode-title {
+    margin: 0;
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+.latest-episode-excerpt {
+  $border: 1px solid #CCC;
+  border-top: $border;
+  border-bottom: $border;
+  margin: ($grid-gutter-width / 2) 0;
+  padding: ($grid-gutter-width / 2) 0;
+}
+.latest-episode-cta .btn {
+  display: block;
+  margin-bottom: $grid-gutter-width /2;
+}

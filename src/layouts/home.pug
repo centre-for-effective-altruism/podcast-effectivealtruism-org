@@ -1,14 +1,30 @@
 extends ./page
 
 block header
-    header#header
-        include ./layout/header.pug
-        +headerLogo()
-        h1.page-title.sr-only!= typogr.typogrify(title)
+  header#header
+    include ./layout/header.pug
+    +headerLogo()
+    h1.page-title.sr-only!= typogr.typogrify(title)
 
 block content
-    .home-content#content
-        section.home-section
-                .row
-                    .col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
-                        != contents
+  .home-content#content
+      .row
+        .col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
+          if episodes
+            //- include ./components/soundcloud-embed
+            section.home-section.latest-episode
+              each episode in episodes.slice(episodes.length - 1)
+                  h2.latest-episode-heading Latest episode:
+                  h3.latest-episode-title ##{episode.number} — #{episode.title}
+                  .latest-episode-excerpt
+                    != episode.excerpt
+                  .latest-episode-cta
+                    .row
+                      .col-sm-6.col-md-4.col-md-offset-2
+                        a(href=episode.path).btn.btn-primary Listen now
+                          i.fa.fa-play-circle
+                      .col-sm-6.col-md-4
+                        a(href='/how-to-listen/').btn.btn-default Subscribe (iOS/Android/RSS)
+                          i.fa.fa-podcast
+          section.home-section.introduction
+            != contents
