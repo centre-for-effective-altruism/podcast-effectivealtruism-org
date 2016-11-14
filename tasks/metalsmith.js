@@ -92,6 +92,7 @@ const addPaths = require(paths.lib('metalsmith/plugins/add-paths.js'))
 const createContentfulFileIdMap = require(paths.lib('metalsmith/plugins/create-contentful-file-id-map.js'))
 const createSeriesHierarchy = require(paths.lib('metalsmith/plugins/create-series-hierarchy.js'))
 const addCanonicalUrls = require(paths.lib('metalsmith/plugins/add-canonical-urls'))
+const redirectLatestEpisode = require(paths.lib('metalsmith/plugins/redirect-latest-episode'))
 message.status('Loaded metadata plugins')
 
 // only require these modules in production
@@ -159,6 +160,10 @@ function build (buildCount) {
         {
           pattern: 'posts/**/index.html',
           rebase: ['posts', 'blog']
+        },
+        {
+          pattern: 'settings/_redirects',
+          rebase: ['settings', '']
         }
       ]))
       .use(_message.info('Moved files into place'))
@@ -174,6 +179,7 @@ function build (buildCount) {
           permalinks: true
         }))
       )
+      .use(redirectLatestEpisode())
       .use(_message.info('Added navigation metadata'))
       .use(createSeriesHierarchy())
       .use(_message.info('Built series hierarchy'))
