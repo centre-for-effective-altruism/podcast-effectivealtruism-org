@@ -4,7 +4,10 @@
   "protocol" : "https://",
   "description": "A podcast about how effective altruism can help us do good, better",
   "keywords": "effective altruism, podcast",
-  "logo": "https://images.contentful.com/mtlo55dqox3k/6cISVamQ7YIm0UoAywuMue/12121ba1e377f1807d516e25fea05798/initech.png",
+  "logo": {
+    "vertical": "https://images.contentful.com/u1pn4te1j4jr/6l41Ym5SXmiGqcm2cKYgsQ/5d87b3b133e248c870f234c44eb349ae/DGB-Podcast---Logo-Vertical-Tagline.png",
+    "horizontal": "https://images.contentful.com/u1pn4te1j4jr/4vXOwc1E6seI4Cm0WcwcUc/498c468a04fd0041de0ce02560e3ec17/DGB-Podcast---Logo-Horizontal.png"
+  },
   "social": {
     "twitter": false
   }
