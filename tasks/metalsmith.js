@@ -180,11 +180,14 @@ function build (buildCount) {
       // Build HTML files
       .use(markdown({
         plugin: {
-          pattern: '**/*.html'
+          pattern: '**/*.html',
+          fields: ['contents', 'excerpt', 'transcript']
         }
       }).use(MarkdownItAttrs).use(MarkdownItFootnote))
       .use(_message.info('Converted Markdown to HTML'))
-      .use(htmlPostprocessing())
+      .use(htmlPostprocessing({
+        fields: ['contents', 'transcript']
+      }))
       .use(sanitizeShortcodes())
       .use(_message.info('Post-processed HTML'))
       .use(excerpts())
