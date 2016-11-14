@@ -12,10 +12,10 @@ block content
   #content
     .row
       main.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
+        include ./components/breadcrumbs
         if soundcloudTrackID
           .episode-embedded-player
             include ./components/soundcloud-embed
-            +soundcloudEmbed(soundcloudTrackID, true)
-        include ./components/breadcrumbs
+            +soundcloudEmbed(soundcloudTrackID, false)
         != contents
         block postContent
