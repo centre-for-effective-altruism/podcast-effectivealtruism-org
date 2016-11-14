@@ -14,8 +14,25 @@ block content
       main.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
         include ./components/breadcrumbs
         if soundcloudTrackID
-          .episode-embedded-player
+          section.section-no-divider.episode-embedded-player
             include ./components/soundcloud-embed
             +soundcloudEmbed(soundcloudTrackID, false)
-        != contents
+        if guests && guests.length
+          section.section-divider.episode-guests
+            h2.episode-guests-title Guests
+            each id in guests.map(guest => guest.sys.id)
+              - var guest = contentfulIDMap[id]
+              .episode-guests-guest
+                h3.episode-guests-guest-title!= guest.title
+                .episode-guests-guest-bio
+                  != guest.body
+
+        section.section-divider.episode-overview
+          h2.episode-overview-title
+          != contents
+        if transcript && transcript.length
+          section.section-divider.episode-transcript
+            h2.episode-transcript-title Transcript
+            != transcript
+
         block postContent
