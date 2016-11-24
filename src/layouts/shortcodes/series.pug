@@ -1,7 +1,10 @@
-- var seriesSlug = slug;
-- var useNumbering = numbering===true ? true : false;
-- var useTOC = toc===true ? true : false;
-- var tocDepth = tocdepth || 1;
-- var useExcerpts = excerpts===false ? false : true;
-- var useReadMore = readmore===false ? false : true;
+- var seriesSlug = slug
+- var opts = {};
+- opts.useNumbering = numbering===true ? true : false
+- opts.useTOC = toc===true ? true : false
+- opts.tocDepth = tocdepth || 1
+- opts.useExcerpts = excerpts===false ? false : true
+- opts.useReadMore = readmore===false ? false : true
+
 include ../components/series
++series(seriesSlug, opts)

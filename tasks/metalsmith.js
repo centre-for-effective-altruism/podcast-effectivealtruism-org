@@ -43,6 +43,7 @@ message.status('Loaded utility plugins')
 const markdown = require('metalsmith-markdownit')
 const MarkdownItAttrs = require('markdown-it-attrs')
 const MarkdownItFootnote = require('markdown-it-footnote')
+const MarkdownItContainer = require('markdown-it-container')
 const htmlPostprocessing = require(paths.lib('metalsmith/plugins/html-postprocessing'))
 const sanitizeShortcodes = require(paths.lib('metalsmith/plugins/sanitize-shortcodes.js'))
 const saveRawContents = require(paths.lib('metalsmith/plugins/save-raw-contents'))
@@ -68,7 +69,7 @@ const layoutUtils = {
 }
 
 const shortcodeOpts = Object.assign({
-  directory: paths.templates('shortcodes'),
+  directory: paths.layouts('shortcodes'),
   pattern: '**/*.html',
   engine: 'pug',
   extension: '.pug'
@@ -189,7 +190,7 @@ function build (buildCount) {
           pattern: '**/*.html',
           fields: ['contents', 'excerpt', 'transcript']
         }
-      }).use(MarkdownItAttrs).use(MarkdownItFootnote))
+      }).use(MarkdownItAttrs).use(MarkdownItFootnote).use(MarkdownItContainer))
       .use(_message.info('Converted Markdown to HTML'))
       .use(htmlPostprocessing({
         fields: ['contents', 'transcript']

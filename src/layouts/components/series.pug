@@ -2,12 +2,22 @@ mixin includeChild (item,index, useNumbering, useExcerpts)
 	- var file = item.file
 	- var file = item.file
 	case item.type
+		when 'article'
+			include ./series-article
 		when 'page'
-			include ./series-page
+			include ./series-article
+		when 'organisation'
+			include ./series-organisation
 		when 'link'
 			include ./series-link
+		when 'person'
+			include ./series-person
+		when 'book'
+			include ./series-book
 
-mixin series(seriesSlug)
+mixin series(seriesSlug, opts)
+	- var useNumbering = opts.useNumbering
+	- var useExcerpts = opts.useExcerpts
 	if seriesSlug && seriesSets[seriesSlug] && seriesSets[seriesSlug].children.length
 		each child,index in seriesSets[seriesSlug].children
 			if child.type === 'series'

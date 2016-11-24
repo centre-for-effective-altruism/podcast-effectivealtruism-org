@@ -80,6 +80,11 @@
 .series-person-title {
 	margin-top: 0;
 }
+
+.series-person-job-title {
+	font-weight: $font-weight-bold;
+}
+
 .series-person-photo-wrapper {
 	@include responsive-square();
 	overflow: hidden;
