@@ -6,12 +6,12 @@
 @import 'components/media-list';
 @import 'components/newsletter-signup';
 @import 'components/quotation';
+@import 'components/subscribe-buttons';
 @import 'components/table-of-contents';
 
 .btn {
 	border-radius: 0 !important;
 	font-weight: $font-weight-normal;
-	font-style: italic;
 	// border-width: 2px;
 	@media(max-width:$screen-xs-max){
 		white-space: inherit;
@@ -110,23 +110,16 @@ span {
 }
 
 
-.speakers-list {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+.people-list {
 	@include clearfix();
 	&>li {
-		float: left; display: block;
+		float: left;
+		display: block;
+		white-space: pre-wrap;
 	}
 }
-$speaker-list-divider-margin: 0.3em;
-.speakers-list-divider-comma {
-	margin-right: $speaker-list-divider-margin;
-}
-.speakers-list-divider-amp {
-	margin-left: $speaker-list-divider-margin;
-	margin-right: $speaker-list-divider-margin;
-}
+
+
 
 // members page
 

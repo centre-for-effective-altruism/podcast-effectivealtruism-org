@@ -14,6 +14,11 @@ block content
 				h2.episodes-episode-title Episode #{file.number}: #{file.title}
 				.episodes-episode-excerpt
 					!= file.excerpt
+				if file.guests && file.guests.length
+					.episodes-episode-guests
+						strong Guests:
+						include ./helpers/format-multiple-names
+						+formatMultipleNames(file.guests)
 				.episodes-episode-cta
 					a.btn.btn-default(href=file.path) Listen now
 						i.fa.fa-play-circle

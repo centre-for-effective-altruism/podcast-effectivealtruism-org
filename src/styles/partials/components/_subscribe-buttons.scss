@@ -1,0 +1,11 @@
+.subscribe-buttons {
+}
+.subscribe-button-wrapper {
+  margin-bottom: $grid-gutter-width / 2;
+  @media(min-width: $screen-md) {
+    width: 20%;
+  }
+}
+.subscribe-button {
+  display: block;
+}

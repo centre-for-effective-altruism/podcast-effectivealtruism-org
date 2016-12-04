@@ -10,5 +10,12 @@
   },
   "social": {
     "twitter": false
+  },
+  "podcast": {
+    "rss": "http://feeds.soundcloud.com/users/soundcloud:users:265435079/sounds.rss",
+    "itunes": "https://itunes.apple.com/podcast/doing-good-better/id1178021428",
+    "soundcloud": "https://soundcloud.com/doinggoodbetter",
+    "stitcher": "http://www.stitcher.com/podcast/effective-altruism/doing-good-better",
+    "tunein": "http://tunein.com/radio/Doing-Good-Better-p937917/"
   }
 }

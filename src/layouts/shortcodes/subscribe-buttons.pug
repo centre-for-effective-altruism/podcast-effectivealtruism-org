@@ -1,0 +1,5 @@
+- var serviceList = false
+if services
+  - serviceList = services.split(',').map(service => service.trim())
+include ../components/subscribe-buttons
++subscribeButtons(serviceList)

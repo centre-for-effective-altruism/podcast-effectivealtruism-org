@@ -1,0 +1,26 @@
+mixin subscribeButtons(serviceList)
+  .subscribe-buttons
+    .row
+      each serviceLink, serviceId in site.podcast
+        if !serviceList || serviceList && serviceList.includes(serviceId)
+          - var serviceName = 'Unknown service'
+          - var serviceIcon = 'times'
+          case serviceId
+            when 'itunes'
+              - var serviceName = 'iTunes'
+              - var serviceIcon = 'apple'
+            when 'stitcher'
+              - var serviceName = 'Stitcher'
+              - var serviceIcon = 'podcast'
+            when 'tunein'
+              - var serviceName = 'TuneIn'
+              - var serviceIcon = 'podcast'
+            when 'soundcloud'
+              - var serviceName = 'SoundCloud'
+              - var serviceIcon = 'soundcloud'
+            when 'rss'
+              - var serviceName = 'RSS Feed'
+              - var serviceIcon = 'rss'
+          .subscribe-button-wrapper.col-xs-6.col-sm-4.col-md-2
+            a.subscribe-button.btn.btn-default(href=serviceLink target="_blank")!= serviceName
+              i.fa(class=`fa-${serviceIcon}`)

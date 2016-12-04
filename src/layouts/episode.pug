@@ -17,19 +17,32 @@ block content
           section.section-no-divider.episode-embedded-player
             include ./components/soundcloud-embed
             +soundcloudEmbed(soundcloudTrackID, false)
+        section.section-no-divider.episode-actions
+          h3 Subscribe to 
+            em Doing Good Better
+            small 
+              a(href='/how-to-listen/') (help)
+          include ./components/subscribe-buttons
+          +subscribeButtons(false, true)
+          if soundcloudTrackID
+            h3 Download Episode #{number}: #{title}
+            a.btn.btn-default(href=`http://feeds.soundcloud.com/stream/${soundcloudTrackID}.mp3` target="_blank") Download (.mp3) 
+              i.fa.fa-download
+        section.section-divider.episode-overview
+          h2.episode-overview-title Overview
+          != contents
         if guests && guests.length
           section.section-divider.episode-guests
             h2.episode-guests-title Guests
-            each id in guests.map(guest => guest.sys.id)
-              - var guest = contentfulIDMap[id]
-              .episode-guests-guest
-                h3.episode-guests-guest-title!= guest.title
-                .episode-guests-guest-bio
-                  != guest.body
-
-        section.section-divider.episode-overview
-          h2.episode-overview-title
-          != contents
+            ul.episode-guests-list
+              each g in guests
+                - var guest = contentfulIDMap[g.sys.id]
+                li.episode-guests-list-guests
+                  span.guest-title
+                    strong!= guest.title
+                  if guest.jobTitle
+                    | — 
+                    span.guest-job-title!= guest.jobTitle
         if transcript && transcript.length
           section.section-divider.episode-transcript
             h2.episode-transcript-title Transcript

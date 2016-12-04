@@ -1,0 +1,21 @@
+.episode-actions {
+  text-align: center;
+  h3 {
+    small {
+      display: block;
+    }
+  }
+}
+
+
+.episode-transcript {
+  blockquote {
+    font-size: $font-size-base;
+    border: none;
+    font-style: italic;
+    padding: 0 0 0 $grid-gutter-width;
+    em {
+      font-style: normal;
+    }
+  }
+}
